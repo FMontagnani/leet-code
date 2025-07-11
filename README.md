@@ -51,7 +51,7 @@ Solutions are named using the following format:
 |----------|-----------|--------|
 | **JavaScript** | `.js` | ✅ Active |
 | **Python** | `.py` | 🔄 Coming Soon |
-| **C#** | `.cs` | 🔄 Coming Soon |
+| **C#** | `.cs` | ✅ Active |
 
 ## 📊 Problem Categories
 
@@ -88,7 +88,11 @@ Each solution includes:
 Make sure you have the following installed for your preferred language:
 
 - **Node.js** (for JavaScript solutions)
+- **.NET 8.0+ SDK** (for C# solutions)
 - **Python 3.x** (for Python solutions)
+- **Java 8+** (for Java solutions)
+- **GCC/G++** (for C++ solutions)
+- **Go 1.16+** (for Go solutions)
 
 ### Running Solutions
 
@@ -99,9 +103,25 @@ Navigate to the language folder and run the solution:
 cd node
 node 1-two-sum.js
 
+# C#
+cd c-sharp/LeetCodeSolutions
+dotnet run
+
 # Python
 cd python
 python3 1-two-sum.py
+
+# Java
+cd java
+javac TwoSum.java && java TwoSum
+
+# C++
+cd cpp
+g++ -o solution 1-two-sum.cpp && ./solution
+
+# Go
+cd go
+go run 1-two-sum.go
 ```
 
 ## 📈 Progress Tracking
