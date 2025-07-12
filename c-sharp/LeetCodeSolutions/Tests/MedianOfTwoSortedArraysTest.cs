@@ -30,76 +30,76 @@ namespace LeetCodeSolutions.Tests
                 "nums1 = [1, 2], nums2 = [3, 4]"
             );
 
-            // Test case 3: One empty array
-            // TestUtilities.RunTestCase(
-            //     "Test Case 3",
-            //     "One empty array",
-            //     () => solution.FindMedianSortedArrays([], [1]),
-            //     1.0,
-            //     "nums1 = [], nums2 = [1]"
-            // );
-
-            // Test case 4: Both arrays have same elements
+            // Test case 3: Both arrays have same elements
             TestUtilities.RunTestCase(
-                "Test Case 4",
+                "Test Case 3",
                 "All same elements",
                 () => solution.FindMedianSortedArrays([1, 1], [1, 1]),
                 1.0,
                 "nums1 = [1, 1], nums2 = [1, 1]"
             );
 
-            // Test case 5: Arrays with different sizes
+            // Test case 4: Arrays with different sizes
             TestUtilities.RunTestCase(
-                "Test Case 5",
+                "Test Case 4",
                 "Different sizes",
                 () => solution.FindMedianSortedArrays([1, 3, 5], [2, 4, 6, 7, 8]),
                 4.5,
                 "nums1 = [1, 3, 5], nums2 = [2, 4, 6, 7, 8]"
             );
 
-            // Test case 6: One array much larger
+            // Test case 5: One array much larger
             TestUtilities.RunTestCase(
-                "Test Case 6",
+                "Test Case 5",
                 "One array much larger",
                 () => solution.FindMedianSortedArrays([1], [2, 3, 4, 5, 6]),
                 3.5,
                 "nums1 = [1], nums2 = [2, 3, 4, 5, 6]"
             );
 
-            // Test case 7: Negative numbers
+            // Test case 6: Negative numbers
             TestUtilities.RunTestCase(
-                "Test Case 7",
+                "Test Case 6",
                 "With negative numbers",
                 () => solution.FindMedianSortedArrays([-2, -1], [0, 1]),
                 -0.5,
                 "nums1 = [-2, -1], nums2 = [0, 1]"
             );
 
-            // Test case 8: Single element arrays
+            // Test case 7: Single element arrays
             TestUtilities.RunTestCase(
-                "Test Case 8",
+                "Test Case 7",
                 "Single element arrays",
                 () => solution.FindMedianSortedArrays([5], [3]),
                 4.0,
                 "nums1 = [5], nums2 = [3]"
             );
 
-            // Test case 9: Arrays with duplicates
+            // Test case 8: Arrays with duplicates
             TestUtilities.RunTestCase(
-                "Test Case 9",
+                "Test Case 8",
                 "Arrays with duplicates",
                 () => solution.FindMedianSortedArrays([1, 2, 2], [2, 3, 4]),
                 2.0,
                 "nums1 = [1, 2, 2], nums2 = [2, 3, 4]"
             );
 
-            // Test case 10: Large gap between arrays
+            // Test case 9: Large gap between arrays
             TestUtilities.RunTestCase(
-                "Test Case 10",
+                "Test Case 9",
                 "Large gap between arrays",
                 () => solution.FindMedianSortedArrays([1, 2], [100, 200]),
                 51.0,
                 "nums1 = [1, 2], nums2 = [100, 200]"
+            );
+
+            // Test case 10: Different sized arrays
+            TestUtilities.RunTestCase(
+                "Test Case 10",
+                "Different sized arrays",
+                () => solution.FindMedianSortedArrays([2, 3], [1]),
+                2.0,
+                "nums1 = [2, 3], nums2 = [1]"
             );
             
             TestUtilities.PrintTestFooter();
