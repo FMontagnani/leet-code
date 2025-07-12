@@ -10,6 +10,16 @@ namespace LeetCodeSolutions.Solutions
     /// </summary>
     public class MedianOfTwoSortedArrays
     {
+        private int[] getMedianIndexes(int length)
+        {
+            if (length % 2 == 0) {
+                int right = length / 2;
+                int left = right - 1;
+                return [left, right];
+            }
+            return [length / 2];
+        }
+
         private double getMedian(int[] nums)
         {
             if (nums.Length % 2 != 0)
@@ -24,43 +34,56 @@ namespace LeetCodeSolutions.Solutions
                 int leftValue = nums[leftMiddleIndex];
                 int rightValue = nums[rightMiddleIndex];
                 double median = (leftValue + rightValue) / 2.0;
-                
+
                 return median;
             }
         }
 
         public double FindMedianSortedArrays(int[] nums1, int[] nums2)
         {
-            List<int> mergedArray = new List<int>();
+            List<int> mergedArray = [];
+
+            if (nums1.Length == 0)
+            {
+                return this.getMedian(nums2);
+            }
+
+            if (nums2.Length == 0)
+            {
+                return this.getMedian(nums1);
+            }
+
+            int mergedArraySize = nums1.Length + nums2.Length;
+
+            int[] medianIndexes = this.getMedianIndexes(mergedArraySize);
+
+            int maxIteration = medianIndexes[medianIndexes.Length - 1];
+
             int n1Index = 0;
             int n2Index = 0;
 
-            while (n1Index < nums1.Length && n2Index < nums2.Length)
+            for (int i = 0; i < maxIteration + 1; i++)
             {
-                if (nums1[n1Index] <= nums2[n2Index])
+                int n1 = n1Index < nums1.Length ? nums1[Math.Min(n1Index, i)] : int.MaxValue;
+                int n2 = n2Index < nums2.Length ? nums2[Math.Min(n2Index, i)] : int.MaxValue;
+
+                if (n1 <= n2)
                 {
-                    mergedArray.Add(nums1[n1Index]);
+                    mergedArray.Add(n1);
                     n1Index++;
                 }
                 else
                 {
-                    mergedArray.Add(nums2[n2Index]);
+                    mergedArray.Add(n2);
                     n2Index++;
                 }
             }
 
-            while (n1Index < nums1.Length)
-            {
-                mergedArray.Add(nums1[n1Index]);
-                n1Index++;
+            if (medianIndexes.Length == 1) {
+                return mergedArray.ElementAt(medianIndexes[0]);
             }
 
-            while (n2Index < nums2.Length)
-            {
-                mergedArray.Add(nums2[n2Index]);
-                n2Index++;
-            }
-            return this.getMedian([.. mergedArray]);
+            return ((double)mergedArray.ElementAt(medianIndexes[0]) + (double)mergedArray.ElementAt(medianIndexes[1])) / 2;
         }
     }
 }
