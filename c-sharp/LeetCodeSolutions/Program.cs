@@ -19,10 +19,14 @@ namespace LeetCodeSolutions
             Console.WriteLine("==================");
 
             // Run tests
-            // var twoSumTests = new TwoSumTests();
-            // twoSumTests.RunTests();
             
-            MedianOfTwoSortedArraysTest.RunTests();
+            // Run Roman to Integer tests
+            RomanToIntegerTests.RunTests();
+
+            // Optional: Run additional test suites
+            RomanToIntegerTests.RunEdgeCaseTests();
+            RomanToIntegerTests.RunPerformanceTests();
+            RomanToIntegerTests.RunVisualTests();
             
             Console.WriteLine("\n✅ All operations completed!");
             Console.WriteLine("Press any key to exit...");
